@@ -12,7 +12,7 @@ test:
 	bin/rails test
 
 start:
-	bin/rails start
+	bin/rails s
 
 console:
 	bin/rails console

@@ -34,7 +34,6 @@ group :development, :test do
   gem 'faker'
   gem 'rubocop-rails', require: false
   gem 'slim_lint'
-  gem 'sqlite3'
 end
 
 group :development do
@@ -55,6 +54,10 @@ group :test do
   # Easy installation and use of web drivers to run system tests with browsers
   gem 'webdrivers'
   gem 'minitest-power_assert'
+end
+
+group :production, :development do
+  gem 'rollbar'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
