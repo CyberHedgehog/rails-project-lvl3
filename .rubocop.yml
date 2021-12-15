@@ -45,3 +45,6 @@ Style/AsciiComments:
 
 Metrics/ParameterLists:
   Enabled: false
+
+Lint/RescueException:
+  Enabled: false
