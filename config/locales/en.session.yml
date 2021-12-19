@@ -2,3 +2,4 @@ en:
   session:
     login: 'Login'
     signup: 'Signup'
+    logout: 'Logout'

@@ -6,7 +6,11 @@
         li.nav-item.me-2
           = link_to t('home'), root_path, class: 'nav-link text-dark'
   ul.nav.nav-pills
-    li.nav-item.me-2
-      = link_to t('session.login'), new_user_registration_path, class: 'nav-link text-dark'
-    li.nav-item.me-2
-      = link_to t('session.signup'), new_user_session_path, class: 'nav-link text-dark'
+    - if current_user
+      li.nav-item.me-2
+        = link_to t('session.logout'), destroy_user_session_path, method: :delete, class: 'nav-link text-dark'
+    - else
+      li.nav-item.me-2
+        = link_to t('session.login'), new_user_registration_path, class: 'nav-link text-dark'
+      li.nav-item.me-2
+        = link_to t('session.signup'), new_user_session_path, class: 'nav-link text-dark'
