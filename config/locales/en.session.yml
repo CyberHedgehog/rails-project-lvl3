@@ -1,5 +1,6 @@
 en:
   session:
     login: 'Login'
+    signin: 'Sign in'
     signup: 'Signup'
     logout: 'Logout'
