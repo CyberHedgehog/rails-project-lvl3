@@ -6,3 +6,6 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+%i[Hobby Transport Electronics Sports Health].each do |item|
+  Category.create(name: item)
+end
