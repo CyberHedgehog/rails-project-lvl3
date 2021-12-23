@@ -31,7 +31,7 @@
 
 # Ignore master key for decrypting credentials and more.
 /config/master.key
-/config/app_environment_variables.rb
+.env
 
 /public/packs
 /public/packs-test
