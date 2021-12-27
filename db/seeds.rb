@@ -7,6 +7,15 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-%i[Hobby Transport Electronics Sports Health].each do |item|
-  Category.create(name: item)
+# %i[Hobby Transport Electronics Sports Health].each do |item|
+#   Category.create(name: item)
+# end
+
+5.times do
+  Bulletin.create(
+    title: Faker::Commerce.product_name,
+    description: Faker::Lorem.paragraph,
+    user_id: 1,
+    category_id: 1
+  )
 end

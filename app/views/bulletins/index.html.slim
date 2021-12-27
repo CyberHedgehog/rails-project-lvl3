@@ -1,1 +1,7 @@
 h2 Bulletins
+.row.mt-2
+  - @bulletins.each do |bulletin|
+    .col-3.pt-2
+      .card.shadow-sm
+        .card-body
+          = link_to bulletin.title, bulletin_path(bulletin)
