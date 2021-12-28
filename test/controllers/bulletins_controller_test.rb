@@ -61,4 +61,16 @@ class BulletinsControllerTest < ActionDispatch::IntegrationTest
     delete bulletin_path(@bulletin)
     assert_not Bulletin.find_by(id: @bulletin.id)
   end
+
+  test 'shold not create if unregistered' do
+    sign_out :user
+    post bulletins_path, params: { bulletin: {
+      title: @title,
+      description: @description,
+      category_id: @category.id
+    } }
+    new_bulletin = Bulletin.find_by(title: @title)
+    assert_not new_bulletin
+    assert_redirected_to new_user_session_path
+  end
 end
