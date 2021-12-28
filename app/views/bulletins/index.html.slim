@@ -3,5 +3,7 @@ h2 Bulletins
   - @bulletins.each do |bulletin|
     .col-3.pt-2
       .card.shadow-sm
+        - if bulletin.image.attached?
+            = image_tag(bulletin.image, class: 'card-img-top x-object-fit-cover', height: 200)
         .card-body
           = link_to bulletin.title, bulletin_path(bulletin)
