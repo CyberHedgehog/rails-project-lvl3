@@ -1,6 +1,6 @@
 = simple_form_for bulletin do |f|
-  = f.input :title
-  = f.input :description
+  = f.input :title, class: 'form-group mb-3 string required bulletin_title'
+  = f.input :description, as: :text
   = f.association :category
-  = f.file_field :image
+  = f.input :image, as: :file, input_html: { class: 'form-control' }
   = f.button :submit, class: 'btn btn-outline-primary me-2 mt-2'
