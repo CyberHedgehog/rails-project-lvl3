@@ -11,11 +11,11 @@
   Category.create(name: item)
 end
 
-5.times do
-  Bulletin.create(
-    title: Faker::Commerce.product_name,
-    description: Faker::Lorem.paragraph,
-    user_id: 1,
-    category_id: 1
-  )
-end
+# 5.times do
+#   Bulletin.create(
+#     title: Faker::Commerce.product_name,
+#     description: Faker::Lorem.paragraph,
+#     user_id: 1,
+#     category_id: 1
+#   )
+# end

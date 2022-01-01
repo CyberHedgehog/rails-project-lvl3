@@ -1,5 +1,6 @@
 install:
 	bundle
+	yarn install
 
 migrate:
 	bin/rails db:migrate
