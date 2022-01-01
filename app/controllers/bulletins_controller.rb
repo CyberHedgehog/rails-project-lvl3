@@ -4,7 +4,7 @@ class BulletinsController < ApplicationController
   before_action :set_bulletin, only: %i[show edit update destroy]
   before_action :authenticate_user!, except: %i[index show]
   def index
-    @bulletins = Bulletin.all
+    @bulletins = Bulletin.order(created_at: :desc)
   end
 
   def show; end
