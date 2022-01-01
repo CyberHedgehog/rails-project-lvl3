@@ -1,6 +1,15 @@
-h2 = @bulletin.title
-- if @bulletin.image.attached?
-    = image_tag(@bulletin.image)
-p = @bulletin.description
-p = @bulletin.category.name
-p = @bulletin.user.email
+.mb-4
+  h2 = @bulletin.title
+hr
+.row
+  .col-sm-6
+    - if @bulletin.image.attached?
+      = image_tag(@bulletin.image, class: 'img-thumbnail mb-2')
+  .col-sm-6
+    p = @bulletin.description
+    p
+      strong = "#{t('activerecord.models.category')}: "
+      span = @bulletin.category.name
+    p
+      strong = "#{t('activerecord.models.user', count: 1)}: "
+      span = @bulletin.user.email
