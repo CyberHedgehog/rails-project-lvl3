@@ -1,0 +1,18 @@
+.mb-4
+  h2 = t('activerecord.models.user.other')
+  hr
+table.table
+  thead
+    tr
+    tr
+      th scope="col" = t('activerecord.attributes.user.email')
+      th scope="col" = t('activerecord.attributes.user.created_at')
+      th scope="col" = t('actions')
+  tbody
+    - @users.each do |user|
+      tr
+        td = link_to user.email, admin_user_path(user)
+        td = time_ago_in_words(user.created_at)
+        td
+          = link_to t('edit'), edit_admin_user_path(user), class: 'link-primary me-2'
+          = link_to t('delete'), admin_user_path(user), method: :delete, class: 'link-danger'
