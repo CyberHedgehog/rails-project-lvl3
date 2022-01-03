@@ -1,0 +1,20 @@
+.mb-4
+  h2 = t('activerecord.models.category.other')
+  hr
+.row
+  = link_to t('categories.new'), new_admin_category_path, class: 'col-sm-3 btn btn-primary'
+table.table
+  thead
+    tr
+    tr
+      th scope="col" = t('activerecord.attributes.category.name')
+      th scope="col" = t('activerecord.attributes.category.created_at')
+      th scope="col" = t('actions')
+  tbody
+    - @categories.each do |category|
+      tr
+        td = category.name
+        td = time_ago_in_words(category.created_at)
+        td
+          = link_to t('edit'), edit_admin_category_path(category), class: 'link-primary me-2'
+          = link_to t('delete'), admin_category_path(category), method: :delete, class: 'link-danger'

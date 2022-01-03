@@ -1,7 +1,9 @@
 en:
   activerecord:
     models:
-      category: Category
+      category:
+        one: Category
+        other: Categories
       bulletin:
         one: Bulletin
         other: Bulletins
@@ -10,3 +12,6 @@ en:
         title: Title
         created_at: Created at
         description: Description
+      category:
+        name: Name
+        created_at: Created at
