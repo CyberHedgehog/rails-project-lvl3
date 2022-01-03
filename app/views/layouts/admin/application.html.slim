@@ -21,21 +21,21 @@ html.h-100
               .col-sm-2.border-end
                 ul.nav.nav-pills.flex-column.mb-auto
                   li.nav-item
-                    a.nav-link.link-dark hreh="#" aria-current="page"
+                    = link_to admin_root_path, class: "nav-link link-dark #{'active' if current_page?(admin_root_path)}"
                       <i class="bi bi-house-fill me-2"></i>
                       | Home
                   li.nav-item
-                    a.nav-link.link-dark hreh="#" aria-current="page"
+                    = link_to admin_bulletins_path, class: "nav-link link-dark #{'active' if current_page?(admin_bulletins_path)}"
                       <i class="bi bi-file-earmark-fill me-2"></i>
                       | Bulletins
                   li.nav-item
-                    a.nav-link.link-dark hreh="#" aria-current="page"
+                    = link_to admin_categories_path, class: "nav-link link-dark #{'active' if current_page?(admin_categories_path)}"
                       <i class="bi bi-folder-fill me-2"></i>
                       | Categories
                   li.nav-item
-                    a.nav-link.link-dark hreh="#" aria-current="page"
+                    = link_to admin_users_path, class: "nav-link link-dark #{'active' if current_page?(admin_users_path)}"
                       <i class="bi bi-people-fill me-2"></i>
                       | Users
-              .col-sm-8
+              .col-sm-10
                 .p-3.p-lg-5.pt-lg-0
                   = yield

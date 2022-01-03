@@ -6,6 +6,6 @@ Rails.application.routes.draw do
   devise_for :users, controllers: { omniauth_callbacks: 'omniauth_callbacks' }
   namespace 'admin' do
     root 'home#index'
-    resources :bulletins
+    resources :bulletins, :categories, :users
   end
 end

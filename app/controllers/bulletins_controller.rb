@@ -34,7 +34,7 @@ class BulletinsController < ApplicationController
 
   def destroy
     @bulletin.destroy
-    redirect_to bulletins_path
+    redirect_to request.referer || bulletins_path
   end
 
   private

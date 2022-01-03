@@ -2,3 +2,11 @@ en:
   activerecord:
     models:
       category: Category
+      bulletin:
+        one: Bulletin
+        other: Bulletins
+    attributes:
+      bulletin:
+        title: Title
+        created_at: Created at
+        description: Description
