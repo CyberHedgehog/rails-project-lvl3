@@ -2,6 +2,7 @@
 
 class Admin::CategoriesController < Admin::ApplicationController
   before_action :set_category, only: %i[edit update destroy]
+  before_action :authorize_admin
 
   def index
     @categories = Category.order(created_at: :desc)
@@ -20,7 +21,9 @@ class Admin::CategoriesController < Admin::ApplicationController
     end
   end
 
-  def edit; end
+  def edit
+    authorize @category
+  end
 
   def update
     if @category.update(category_params)
@@ -46,5 +49,9 @@ class Admin::CategoriesController < Admin::ApplicationController
 
   def category_params
     params.require(:category).permit(:name)
+  end
+
+  def authorize_admin
+    authorize %i[admin category]
   end
 end

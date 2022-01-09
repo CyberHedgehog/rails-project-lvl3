@@ -2,6 +2,7 @@
 
 class Admin::UsersController < Admin::ApplicationController
   before_action :set_user, only: %i[edit update destroy]
+  before_action :authorize_admin
 
   def index
     @users = User.order(created_at: :desc)
@@ -43,5 +44,9 @@ class Admin::UsersController < Admin::ApplicationController
 
   def user_params
     params.require(:user).permit(:email)
+  end
+
+  def authorize_admin
+    authorize %i[admin user]
   end
 end
