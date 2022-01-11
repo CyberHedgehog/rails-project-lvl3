@@ -1,0 +1,8 @@
+h2 Edit
+= simple_form_for(@user, url: admin_user_path(@user), html: { method: :put }) do |f|
+  f.error_notification
+  .form-inputs
+    = f.input :email, required: true, autofocus: true
+    = f.input :is_admin, label: 'Admin'
+  .form-actions
+    = f.button :submit, 'Update', class: 'btn btn-primary'
