@@ -4,3 +4,10 @@ en:
     edit: Edit bulletin
     create: Create bulletin
     title: New bulletin
+    my_bulletins: My bulletins
+    status:
+      events:
+        publish: Publish
+        approve: Approve
+        reject: Reject
+        archive: Archive

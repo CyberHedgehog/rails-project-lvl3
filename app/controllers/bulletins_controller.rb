@@ -1,10 +1,10 @@
 # frozen_string_literal: true
 
 class BulletinsController < ApplicationController
-  before_action :set_bulletin, only: %i[show edit update destroy]
+  before_action :set_bulletin, except: %i[index new create]
   before_action :authenticate_user!, except: %i[index show]
   def index
-    @bulletins = Bulletin.order(created_at: :desc)
+    @bulletins = Bulletin.published.order(created_at: :desc)
   end
 
   def show; end
@@ -35,6 +35,26 @@ class BulletinsController < ApplicationController
   def destroy
     @bulletin.destroy
     redirect_to request.referer || bulletins_path
+  end
+
+  def publish
+    @bulletin.moderate!
+    redirect_to profile_path
+  end
+
+  def archive
+    @bulletin.archive!
+    redirect_to request.referer
+  end
+
+  def approve
+    @bulletin.approve!
+    redirect_to request.referer
+  end
+
+  def reject
+    @bulletin.reject!
+    redirect_to request.referer
   end
 
   private

@@ -30,6 +30,7 @@ gem 'rollbar'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.4', require: false
 
+gem 'aasm'
 gem 'devise'
 gem 'devise-i18n'
 gem 'faker'
