@@ -2,6 +2,6 @@
 
 class ProfileController < ApplicationController
   def index
-    @bulletins = Bulletin.where(user_id: current_user.id)
+    @bulletins = Bulletin.order(created_at: :desc).where(user_id: current_user.id).page params[:page]
   end
 end

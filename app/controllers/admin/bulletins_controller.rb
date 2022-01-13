@@ -4,7 +4,7 @@ class Admin::BulletinsController < Admin::ApplicationController
   before_action :authorize_admin
 
   def index
-    @bulletins = Bulletin.order(created_at: :desc)
+    @bulletins = Bulletin.order(created_at: :desc).page params[:page]
   end
 
   private

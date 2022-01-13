@@ -21,3 +21,4 @@ table.table
             = link_to t('bulletins.status.events.reject'), reject_bulletin_path(bulletin), method: :patch, class: 'link-danger me-2'
           - unless bulletin.archived?
             = link_to t('bulletins.status.events.archive'), archive_bulletin_path(bulletin), method: :patch, class: 'link-secondary'
+= paginate @bulletins
