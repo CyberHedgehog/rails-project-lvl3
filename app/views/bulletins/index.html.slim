@@ -2,6 +2,16 @@
   h2 Bulletins
   hr
 
+= search_form_for @q do |f|
+  .row
+    .col-sm-6
+      = f.search_field :title_cont, class: 'form-control', placeholder: 'Title'
+    .col
+      = f.select :category_name_eq, @categories.map(&:name), { include_blank: 'Category' }, class: 'form-select'
+    .col
+      = f.submit class: 'btn btn-primary me-2'
+      = link_to t('search.reset'), root_path, class: 'btn btn-outline-primary'
+
 .row.mt-2
   - @bulletins.each do |bulletin|
     .col-3.pt-2

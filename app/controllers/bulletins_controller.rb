@@ -4,7 +4,10 @@ class BulletinsController < ApplicationController
   before_action :set_bulletin, except: %i[index new create]
   before_action :authenticate_user!, except: %i[index show]
   def index
-    @bulletins = Bulletin.published.order(created_at: :desc)
+    @categories = Category.all
+    @q = Bulletin.ransack(params[:q])
+    @bulletins = @q.result(distinct: true).order(created_at: :desc).page params[:page]
+    # @bulletins = Bulletin.published.order(created_at: :desc)
   end
 
   def show; end

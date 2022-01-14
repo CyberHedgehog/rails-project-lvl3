@@ -41,6 +41,7 @@ gem 'omniauth-rails_csrf_protection'
 gem 'pg'
 gem 'pundit'
 gem 'rails-i18n'
+gem 'ransack', github: 'activerecord-hackery/ransack'
 gem 'simple_form'
 gem 'slim-rails'
 
