@@ -10,4 +10,8 @@ one: {
 # column: value
 #
 two: {}
+
+admin:
+  email: admin@example.com
+  is_admin: true
 # column: value

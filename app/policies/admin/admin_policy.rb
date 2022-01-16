@@ -25,7 +25,7 @@ class Admin::AdminPolicy < ApplicationPolicy
     admin?
   end
 
-  def delete?
+  def destroy?
     admin?
   end
 
