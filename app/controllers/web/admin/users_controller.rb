@@ -43,7 +43,7 @@ class Web::Admin::UsersController < Web::Admin::ApplicationController
   end
 
   def user_params
-    params.require(:user).permit(:email, :password, :is_admin)
+    params.require(:user).permit(:email, :password, :is_admin, :first_name, :last_name)
   end
 
   def authorize_admin
