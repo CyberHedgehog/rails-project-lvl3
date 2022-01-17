@@ -16,6 +16,6 @@ class User < ApplicationRecord
   end
 
   def admin?
-    is_admin ? true : false
+    admin ? true : false
   end
 end

@@ -13,5 +13,5 @@ two: {}
 
 admin:
   email: admin@example.com
-  is_admin: true
+  admin: true
 # column: value
