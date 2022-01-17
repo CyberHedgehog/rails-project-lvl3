@@ -1,5 +1,5 @@
 class AddStatusToBulletins < ActiveRecord::Migration[6.1]
   def change
-    add_column :bulletins, :status, :string
+    add_column :bulletins, :state, :string
   end
 end

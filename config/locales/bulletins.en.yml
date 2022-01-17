@@ -5,7 +5,7 @@ en:
     create: Create bulletin
     title: New bulletin
     my_bulletins: My bulletins
-    status:
+    state:
       events:
         publish: Publish
         approve: Approve

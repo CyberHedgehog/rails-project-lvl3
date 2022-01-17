@@ -6,7 +6,7 @@
     .col-sm-6
       = f.search_field :title_cont, class: 'form-control', placeholder: 'Title'
     .col
-      = f.select :status_eq, %w[draft rejected published archived under_moderation], { include_blank: 'Status' }, class: 'form-control'
+      = f.select :state_eq, %w[draft rejected published archived under_moderation], { include_blank: t('activerecord.attributes.bulletin.state') }, class: 'form-control'
     .col
       = f.submit class: 'btn btn-primary me-2'
       = link_to t('search.reset'), admin_bulletins_path, class: 'btn btn-outline-primary'
@@ -16,19 +16,19 @@ table.table
     tr
     tr
       th scope="col" = t('activerecord.attributes.bulletin.title')
-      th scope="col" = t('activerecord.attributes.bulletin.status')
+      th scope="col" = t('activerecord.attributes.bulletin.state')
       th scope="col" = t('activerecord.attributes.bulletin.created_at')
       th scope="col" = t('actions')
   tbody
     - @bulletins.each do |bulletin|
       tr
         td = link_to bulletin.title, bulletin_path(bulletin)
-        td = bulletin.status
+        td = bulletin.state
         td = time_ago_in_words(bulletin.created_at)
         td
           - if bulletin.under_moderation?
-            = link_to t('bulletins.status.events.approve'), approve_bulletin_path(bulletin), method: :patch, class: 'link-primary me-2'
-            = link_to t('bulletins.status.events.reject'), reject_bulletin_path(bulletin), method: :patch, class: 'link-danger me-2'
+            = link_to t('bulletins.state.events.approve'), approve_bulletin_path(bulletin), method: :patch, class: 'link-primary me-2'
+            = link_to t('bulletins.state.events.reject'), reject_bulletin_path(bulletin), method: :patch, class: 'link-danger me-2'
           - unless bulletin.archived?
-            = link_to t('bulletins.status.events.archive'), archive_bulletin_path(bulletin), method: :patch, class: 'link-secondary'
+            = link_to t('bulletins.state.events.archive'), archive_bulletin_path(bulletin), method: :patch, class: 'link-secondary'
 = paginate @bulletins
