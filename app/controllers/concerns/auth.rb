@@ -14,6 +14,10 @@ module Auth
     @current_user ||= session[:user_id] && User.find(session[:user_id])
   end
 
+  def authenticate_user!
+    current_user.present?
+  end
+
   def admin_signed_in?
     current_user.admin?
   end

@@ -1,10 +1,11 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
-  post '/auth/:provider/callback', to: 'web/auth#callback', as: 'session'
-  resource :session, only: :destroy
-  
+  post '/auth/:provider', to: 'auth#request', as: :sessions
+  get '/auth/:provider/callback', to: 'web/auth#callback'
+
   scope module: :web do
+    resources :sessions, only: :destroy
     root 'bulletins#index'
     resources :bulletins do
       member do
