@@ -4,15 +4,21 @@ class Web::AuthController < Web::ApplicationController
   skip_before_action :verify_authenticity_token
 
   def callback
-    user = User.from_omniauth(auth_hash)
-    sign_in(user)
+    auth_user_info = auth[:info]
+    user = User.find_or_initialize_by(email: auth_user_info[:email].downcase)
+    user.first_name, user.last_name = auth_user_info[:name].split
 
-    redirect_to root_path, notice: t('sessions.welcome', user: user.email)
+    if user.save
+      sign_in user
+      redirect_to root_path, notice: t('.success')
+    else
+      redirect_to root_path
+    end
   end
 
   protected
 
-  def auth_hash
+  def auth
     request.env['omniauth.auth']
   end
 end

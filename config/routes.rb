@@ -2,7 +2,7 @@
 
 Rails.application.routes.draw do
   post '/auth/:provider', to: 'auth#request', as: :sessions
-  get '/auth/:provider/callback', to: 'web/auth#callback'
+  get '/auth/:provider/callback', to: 'web/auth#callback', as: :callback_auth
 
   scope module: :web do
     resources :sessions, only: :destroy
