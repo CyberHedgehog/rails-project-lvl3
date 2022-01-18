@@ -31,8 +31,6 @@ gem 'rollbar'
 gem 'bootsnap', '>= 1.4.4', require: false
 
 gem 'aasm'
-gem 'devise'
-gem 'devise-i18n'
 gem 'faker'
 gem 'kaminari'
 gem 'omniauth'

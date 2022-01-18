@@ -1,7 +1,9 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
-  devise_for :users, controllers: { omniauth_callbacks: 'omniauth_callbacks' }
+  post '/auth/:provider/callback', to: 'web/auth#callback', as: 'session'
+  resource :session, only: :destroy
+  
   scope module: :web do
     root 'bulletins#index'
     resources :bulletins do
