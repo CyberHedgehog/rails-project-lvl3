@@ -9,7 +9,6 @@ one: {
 }
 # column: value
 #
-two: {}
 
 admin:
   email: admin@example.com

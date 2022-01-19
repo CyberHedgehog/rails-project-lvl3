@@ -1,0 +1,5 @@
+en:
+  auth:
+    success: Successfull login
+    not_authenticated: User is not authenticated
+    not_authorised: User is not authorised

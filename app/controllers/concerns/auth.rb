@@ -6,6 +6,7 @@ module Auth
   end
 
   def sign_out
+    @current_user = nil
     session.delete(:user_id)
     session.clear
   end
@@ -15,7 +16,8 @@ module Auth
   end
 
   def authenticate_user!
-    current_user.present?
+    return if current_user.present?
+    redirect_to root_path, alert: t('auth.not_authenticated')
   end
 
   def admin_signed_in?
@@ -25,7 +27,6 @@ module Auth
   def authenticate_admin!
     return if admin_signed_in?
 
-    flash[:error] = t('forbidden')
-    redirect_to root_path
+    redirect_to root_path, alert: t('auth.not_authrised')
   end
 end

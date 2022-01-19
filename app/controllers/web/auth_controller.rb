@@ -10,7 +10,7 @@ class Web::AuthController < Web::ApplicationController
 
     if user.save
       sign_in user
-      redirect_to root_path, notice: t('.success')
+      redirect_to root_path, notice: t('auth.success')
     else
       redirect_to root_path
     end

@@ -4,7 +4,6 @@ hr
   f.error_notification
   .form-inputs
     = f.input :email, required: true, autofocus: true
-    = f.input :password, required: false if @user.provider.nil?
     = f.input :first_name
     = f.input :last_name
     = f.input :admin, label: 'Admin'
