@@ -6,7 +6,6 @@ module Auth
   end
 
   def sign_out
-    @current_user = nil
     session.delete(:user_id)
     session.clear
   end
@@ -17,6 +16,7 @@ module Auth
 
   def authenticate_user!
     return if current_user.present?
+
     redirect_to root_path, alert: t('auth.not_authenticated')
   end
 
