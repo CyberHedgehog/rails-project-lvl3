@@ -17,6 +17,7 @@ Rails.application.routes.draw do
       root 'bulletins#index'
       resources :bulletins do
         member do
+          patch 'publish'
           patch 'archive'
           patch 'approve'
           patch 'reject'
