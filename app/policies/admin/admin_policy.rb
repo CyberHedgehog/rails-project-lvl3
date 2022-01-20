@@ -29,6 +29,22 @@ class Admin::AdminPolicy < ApplicationPolicy
     admin?
   end
 
+  def publish?
+    admin?
+  end
+
+  def archive?
+    admin?
+  end
+
+  def approve?
+    admin?
+  end
+
+  def reject?
+    admin?
+  end
+
   private
 
   def admin?
