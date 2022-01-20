@@ -27,7 +27,7 @@ table.table
         td = time_ago_in_words(bulletin.created_at)
         td
           - if bulletin.under_moderation?
-            = link_to t('bulletins.state.events.approve'), approve_admin_bulletin_path(bulletin), method: :patch, class: 'link-primary me-2'
+            = link_to t('bulletins.state.events.approve'), publish_admin_bulletin_path(bulletin), method: :patch, class: 'link-primary me-2'
             = link_to t('bulletins.state.events.reject'), reject_admin_bulletin_path(bulletin), method: :patch, class: 'link-danger me-2'
           - unless bulletin.archived?
             = link_to t('bulletins.state.events.archive'), archive_admin_bulletin_path(bulletin), method: :patch, class: 'link-secondary'

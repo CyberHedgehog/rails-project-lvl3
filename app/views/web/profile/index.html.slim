@@ -18,7 +18,7 @@ table.table
         td
           = link_to t('edit'), edit_bulletin_path(bulletin), class: 'link-primary me-2'
           - unless bulletin.published?
-            = link_to t('bulletins.state.events.publish'), publish_bulletin_path(bulletin), method: :patch, class: 'link-primary me-2'
+            = link_to t('bulletins.state.events.publish'), to_moderate_bulletin_path(bulletin), method: :patch, class: 'link-primary me-2'
           - unless bulletin.archived?
             = link_to t('bulletins.state.events.archive'), archive_bulletin_path(bulletin), method: :patch, class: 'link-primary me-2'
           = link_to t('delete'), bulletin_path(bulletin), method: :delete, class: 'link-danger'

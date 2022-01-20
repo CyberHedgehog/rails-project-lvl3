@@ -51,7 +51,7 @@ class Web::BulletinsController < Web::ApplicationController
   end
 
   def publish
-    @bulletin.approve!
+    @bulletin.publish!
     redirect_to request.referer
   end
 
