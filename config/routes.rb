@@ -10,6 +10,7 @@ Rails.application.routes.draw do
     resources :bulletins do
       member do
         patch 'publish'
+        patch 'archive'
       end
     end
     namespace 'admin' do
