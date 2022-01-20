@@ -9,18 +9,18 @@ class Web::Admin::BulletinsController < Web::Admin::ApplicationController
     @bulletins = @q.result(distinct: true).order(created_at: :desc).page params[:page]
   end
 
-  def publish
+  def to_moderate
     @bulletin.moderate!
+    redirect_to admin_bulletins_path
+  end
+
+  def publish
+    @bulletin.publish!
     redirect_to admin_bulletins_path
   end
 
   def archive
     @bulletin.archive!
-    redirect_to admin_bulletins_path
-  end
-
-  def approve
-    @bulletin.approve!
     redirect_to admin_bulletins_path
   end
 

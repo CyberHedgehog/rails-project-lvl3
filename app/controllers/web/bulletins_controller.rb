@@ -40,7 +40,7 @@ class Web::BulletinsController < Web::ApplicationController
     redirect_to request.referer || bulletins_path
   end
 
-  def publish
+  def to_moderate
     @bulletin.moderate!
     redirect_to profile_path
   end
@@ -50,7 +50,7 @@ class Web::BulletinsController < Web::ApplicationController
     redirect_to profile_path
   end
 
-  def approve
+  def publish
     @bulletin.approve!
     redirect_to request.referer
   end

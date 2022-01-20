@@ -9,7 +9,7 @@ Rails.application.routes.draw do
     root 'bulletins#index'
     resources :bulletins do
       member do
-        patch 'publish'
+        patch 'to_moderate'
         patch 'archive'
       end
     end
@@ -17,9 +17,9 @@ Rails.application.routes.draw do
       root 'bulletins#index'
       resources :bulletins do
         member do
+          patch 'to_moderate'
           patch 'publish'
           patch 'archive'
-          patch 'approve'
           patch 'reject'
         end
       end
