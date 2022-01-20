@@ -47,7 +47,7 @@ class Web::BulletinsController < Web::ApplicationController
 
   def archive
     @bulletin.archive!
-    redirect_to request.referer
+    redirect_to profile_path
   end
 
   def approve
