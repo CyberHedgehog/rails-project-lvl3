@@ -8,6 +8,21 @@ class Web::Admin::BulletinsController < Web::Admin::ApplicationController
     @bulletins = @q.result(distinct: true).order(created_at: :desc).page params[:page]
   end
 
+  def archive
+    @bulletin.archive!
+    redirect_to request.referer
+  end
+
+  def approve
+    @bulletin.approve!
+    redirect_to request.referer
+  end
+
+  def reject
+    @bulletin.reject!
+    redirect_to request.referer
+  end
+
   private
 
   def authorize_admin
