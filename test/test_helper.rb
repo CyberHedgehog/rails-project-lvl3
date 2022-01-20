@@ -24,8 +24,7 @@ class ActiveSupport::TestCase
     )
     Rails.application.env_config['omniauth.auth'] = OmniAuth.config.mock_auth[:github]
 
-    # get callback_auth_path(:github)
-    post sessions_path(:github)
+    get callback_auth_path(:github)
   end
 
   def sign_out

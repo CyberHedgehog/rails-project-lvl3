@@ -28,7 +28,7 @@ class BulletinsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test 'should show' do
-    sign_out @user
+    sign_out
     get bulletin_path(@bulletin)
     assert_response :success
   end

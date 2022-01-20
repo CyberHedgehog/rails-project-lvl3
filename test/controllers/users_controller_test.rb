@@ -16,7 +16,7 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
   end
 
   test 'should not get index if unauthorized' do
-    sign_out @admin
+    sign_out
     sign_in @user
     get admin_users_path
     assert_redirected_to root_path

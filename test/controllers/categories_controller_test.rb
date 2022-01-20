@@ -16,7 +16,7 @@ class CategoriesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test 'should not get index if unauthorized' do
-    sign_out @admin
+    sign_out
     sign_in users(:one)
     get admin_categories_path
     assert_redirected_to root_path
