@@ -16,17 +16,17 @@ class Web::Admin::BulletinsController < Web::Admin::ApplicationController
 
   def archive
     @bulletin.archive!
-    redirect_to request.referer
+    redirect_to admin_bulletins_path
   end
 
   def approve
     @bulletin.approve!
-    redirect_to request.referer
+    redirect_to admin_bulletins_path
   end
 
   def reject
     @bulletin.reject!
-    redirect_to request.referer
+    redirect_to admin_bulletins_path
   end
 
   private
