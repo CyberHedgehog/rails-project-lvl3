@@ -10,14 +10,19 @@ Rails.application.routes.draw do
     resources :bulletins do
       member do
         patch 'publish'
-        patch 'archive'
-        patch 'approve'
-        patch 'reject'
       end
     end
     namespace 'admin' do
       root 'bulletins#index'
-      resources :bulletins, :categories, :users
+      resources :bulletins do
+        member do
+          patch 'archive'
+          patch 'approve'
+          patch 'reject'
+        end
+      end
+      resources :categories
+      resources :users
     end
     get 'profile', to: 'profile#index'
   end
