@@ -6,7 +6,7 @@ class Web::BulletinsController < Web::ApplicationController
   def index
     @categories = Category.all
     @q = Bulletin.ransack(params[:q])
-    @bulletins = @q.result(distinct: true).order(created_at: :desc).page params[:page]
+    @bulletins = @q.result(distinct: true).published.order(created_at: :desc).page params[:page]
     # @bulletins = Bulletin.published.order(created_at: :desc)
   end
 
