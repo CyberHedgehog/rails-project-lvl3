@@ -5,5 +5,7 @@ class User < ApplicationRecord
     admin ? true : false
   end
 
+  has_many :bulletins, dependent: :destroy
+
   validates :email, presence: true, uniqueness: true
 end
