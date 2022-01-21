@@ -48,6 +48,6 @@ class Admin::AdminPolicy < ApplicationPolicy
   private
 
   def admin?
-    user.admin?
+    user&.admin?
   end
 end

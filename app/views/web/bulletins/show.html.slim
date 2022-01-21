@@ -12,4 +12,4 @@ hr
       span = @bulletin.category.name
     p
       strong = "#{t('activerecord.models.user', count: 1)}: "
-      span = @bulletin.user.email
+      span = "#{@bulletin.user.first_name} #{@bulletin.user.last_name}"
