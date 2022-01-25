@@ -2,7 +2,7 @@
 
 require 'test_helper'
 
-class CategoriesControllerTest < ActionDispatch::IntegrationTest
+class Admin::CategoriesControllerTest < ActionDispatch::IntegrationTest
   setup do
     @admin = users(:admin)
     @category = categories(:one)

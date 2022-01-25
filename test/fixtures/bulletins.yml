@@ -11,3 +11,17 @@ two:
   description: MyString
   category: two
   user: two
+
+under_moderation:
+  title: UnderModerate
+  description: UnderModerate
+  category: one
+  user: one
+  state: under_moderation
+
+draft:
+  title: Draft
+  description: Draft
+  category: two
+  user: one
+  state: draft
