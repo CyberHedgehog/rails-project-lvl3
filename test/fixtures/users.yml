@@ -6,14 +6,12 @@
 #
 one:
   email: jd@email
-  fist_name: John
-  last_name: Doe
+  name: John Doe
 # column: value
 #
 
 admin:
   email: admin@example.com
-  fist_name: Admin
-  last_name: Admin
+  name: Admin
   admin: true
 # column: value

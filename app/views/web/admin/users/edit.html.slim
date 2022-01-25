@@ -4,8 +4,7 @@ hr
   f.error_notification
   .form-inputs
     = f.input :email, required: true, autofocus: true
-    = f.input :first_name
-    = f.input :last_name
+    = f.input :name
     = f.input :admin, label: 'Admin'
   .form-actions
     = f.button :submit, 'Update', class: 'btn btn-primary'
