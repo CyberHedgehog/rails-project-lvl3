@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 class Web::Admin::CategoriesController < Web::Admin::ApplicationController
-  before_action :set_category, only: %i[edit update destroy]
   before_action :authorize_admin
 
   def index
@@ -21,10 +20,12 @@ class Web::Admin::CategoriesController < Web::Admin::ApplicationController
     end
   end
 
-  def edit; end
+  def edit
+    category
+  end
 
   def update
-    if @category.update(category_params)
+    if category.update(category_params)
       redirect_to admin_categories_path, notice: t('categories.update.success')
     else
       render :edit, status: :unprocessible_entity
@@ -32,7 +33,7 @@ class Web::Admin::CategoriesController < Web::Admin::ApplicationController
   end
 
   def destroy
-    if @category.destroy
+    if category.destroy
       redirect_to admin_categories_path, notice: t('categories.delete.success')
     else
       redirect_to admin_categories_path, alert: t('categories.delete.error')
@@ -41,8 +42,8 @@ class Web::Admin::CategoriesController < Web::Admin::ApplicationController
 
   private
 
-  def set_category
-    @category = Category.find(params[:id])
+  def category
+    @category ||= Category.find(params[:id])
   end
 
   def category_params

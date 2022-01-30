@@ -2,7 +2,6 @@
 
 class Web::Admin::BulletinsController < Web::Admin::ApplicationController
   before_action :authorize_admin
-  before_action :set_bulletin, except: %i[index]
 
   def index
     @q = Bulletin.ransack(params[:q])
@@ -10,29 +9,29 @@ class Web::Admin::BulletinsController < Web::Admin::ApplicationController
   end
 
   def to_moderate
-    @bulletin.moderate!
+    bulletin.moderate!
     redirect_to admin_bulletins_path
   end
 
   def publish
-    @bulletin.publish!
+    bulletin.publish!
     redirect_to admin_bulletins_path
   end
 
   def archive
-    @bulletin.archive!
+    bulletin.archive!
     redirect_to admin_bulletins_path
   end
 
   def reject
-    @bulletin.reject!
+    bulletin.reject!
     redirect_to admin_bulletins_path
   end
 
   private
 
-  def set_bulletin
-    @bulletin = Bulletin.find(params[:id])
+  def bulletin
+    @bulletin ||= Bulletin.find(params[:id])
   end
 
   def authorize_admin
