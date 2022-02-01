@@ -48,14 +48,22 @@ class Web::BulletinsController < Web::ApplicationController
 
   def to_moderate
     authorize bulletin
-    bulletin.moderate!
-    redirect_to profile_path
+    if bulletin.may_moderate?
+      bulletin.moderate!
+      redirect_to profile_path
+    else
+      render :index, status: :unprocessible_entity
+    end
   end
 
   def archive
     authorize bulletin
-    bulletin.archive!
-    redirect_to profile_path
+    if bulletin.may_archive?
+      bulletin.archive!
+      redirect_to profile_path
+    else
+      render :index, status: :unprocessible_entity
+    end
   end
 
   def publish

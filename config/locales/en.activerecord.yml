@@ -18,7 +18,3 @@ en:
       category:
         name: Name
         created_at: Created at
-    validations:
-      messages:
-        image:
-          size: 'Image size should not exceed 5 megabytes'
