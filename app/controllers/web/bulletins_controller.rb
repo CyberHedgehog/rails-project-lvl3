@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class Web::BulletinsController < Web::ApplicationController
-  before_action :authenticate_user!, except: %i[index show]
+  # before_action :authenticate_user!, except: %i[index show]
   def index
     @categories = Category.all
     @q = Bulletin.ransack(params[:q])
@@ -13,10 +13,12 @@ class Web::BulletinsController < Web::ApplicationController
   end
 
   def new
+    authorize [:bulletin]
     @bulletin = Bulletin.new
   end
 
   def create
+    authorize [:bulletin]
     @bulletin = Bulletin.new(user: current_user, **bulletin_params)
     if @bulletin.save
       redirect_to bulletin_path(@bulletin)
@@ -26,10 +28,12 @@ class Web::BulletinsController < Web::ApplicationController
   end
 
   def edit
+    authorize bulletin
     bulletin
   end
 
   def update
+    authorize bulletin
     if bulletin.update(bulletin_params)
       redirect_to bulletin_path(bulletin)
     else
@@ -38,26 +42,31 @@ class Web::BulletinsController < Web::ApplicationController
   end
 
   def destroy
+    authorize bulletin
     bulletin.destroy
     redirect_to request.referer || bulletins_path
   end
 
   def to_moderate
+    authorize bulletin
     bulletin.moderate!
     redirect_to profile_path
   end
 
   def archive
+    authorize bulletin
     bulletin.archive!
     redirect_to profile_path
   end
 
   def publish
+    authorize bulletin
     bulletin.publish!
     redirect_to request.referer
   end
 
   def reject
+    authorize bulletin
     bulletin.reject!
     redirect_to request.referer
   end
