@@ -31,6 +31,7 @@ gem 'rollbar'
 gem 'bootsnap', '>= 1.4.4', require: false
 
 gem 'aasm'
+gem 'active_storage_validations'
 gem 'faker'
 gem 'kaminari'
 gem 'omniauth'

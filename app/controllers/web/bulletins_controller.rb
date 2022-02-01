@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 class Web::BulletinsController < Web::ApplicationController
-  # before_action :authenticate_user!, except: %i[index show]
   def index
     @categories = Category.all
     @q = Bulletin.ransack(params[:q])
