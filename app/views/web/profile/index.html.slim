@@ -17,9 +17,9 @@ table.table
         td = time_ago_in_words(bulletin.created_at)
         td
           = link_to t('edit'), edit_bulletin_path(bulletin), class: 'link-primary me-2'
-          - if bulletin.draft?
+          - if bulletin.may_moderate?
             = link_to t('bulletins.state.events.to_moderate'), to_moderate_bulletin_path(bulletin), method: :patch, class: 'link-primary me-2'
-          - unless bulletin.archived?
+          - if bulletin.may_archive?
             = link_to t('bulletins.state.events.archive'), archive_bulletin_path(bulletin), method: :patch, class: 'link-primary me-2'
           = link_to t('delete'), bulletin_path(bulletin), method: :delete, class: 'link-danger'
 = paginate @bulletins
